@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vidisha's Universe ❤️</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #fff;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,120,190,.18), transparent 24%),
+      radial-gradient(circle at 80% 70%, rgba(110,120,255,.20), transparent 28%),
+      linear-gradient(135deg,#07081b,#11143a 48%,#070817);
+    overflow-x: hidden;
+  }
+
+  body:before,
+  body:after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+      radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 1.5px),
+      radial-gradient(circle,rgba(255,190,235,.7) 0 1px,transparent 1.5px);
+
+    background-size: 97px 113px,151px 173px;
+    background-position: 10px 20px,40px 70px;
+    opacity: .55;
+
+    animation: twinkle 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    to {
+      opacity: .85;
+      transform: scale(1.01);
+    }
+  }
+
+  .screen {
+    min-height: 100vh;
+    display: none;
+    position: relative;
+    padding: 28px 18px 60px;
+  }
+
+  .screen.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .moon {
+    font-size: 64px;
+    filter: drop-shadow(0 0 20px #ffd9f2);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  h1 {
+    font-size: clamp(38px,9vw,72px);
+    margin: 15px 0 8px;
+    letter-spacing: .02em;
+  }
+
+  .pink {
+    color: #ffb4dc;
+  }
+
+  .sub {
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #dddafa;
+  }
+
+  button {
+    border: 1px solid rgba(255,255,255,.28);
+    background: rgba(255,255,255,.10);
+    color: white;
+    border-radius: 999px;
+    padding: 13px 23px;
+    font-size: 16px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: .25s;
+    box-shadow: 0 8px 30px rgba(0,0,0,.2);
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    background: rgba(255,160,215,.2);
+  }
+
+  .enter {
+    margin-top: 24px;
+  }
+
+  .top {
+    width: min(1100px,100%);
+    text-align: center;
+  }
+
+  .top h2 {
+    font-size: 36px;
+    margin: 8px 0;
+  }
+
+  .top p {
+    color: #c9c8e7;
+  }
+
+  .grid {
+    width: min(1000px,100%);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+    gap: 18px;
+    margin-top: 25px;
+  }
+
+  .portal {
+    min-height: 170px;
+    border-radius: 25px;
+    padding: 24px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,.045)
+      );
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    box-shadow: 0 15px 45px rgba(0,0,0,.25);
+
+    cursor: pointer;
+    transition: .3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portal:hover {
+    transform: translateY(-7px) rotate(-.5deg);
+    border-color: rgba(255,180,220,.5);
+  }
+
+  .portal .icon {
+    font-size: 43px;
+    margin-bottom: 12px;
+  }
+
+  .portal strong {
+    font-size: 20px;
+  }
+
+  .portal small {
+    color: #bdbbd9;
+    margin-top: 7px;
+  }
+
+  .back {
+    margin-top: 28px;
+  }
+
+  .content {
+    width: min(760px,100%);
+    margin: auto;
+  }
+
+  .glass {
+    background: rgba(12,14,45,.72);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 28px;
+    padding: 28px;
+
+    box-shadow: 0 20px 70px rgba(0,0,0,.35);
+
+    backdrop-filter: blur(14px);
+  }
+
+  .content h2 {
+    font-size: 34px;
+    text-align: center;
+    margin-top: 0;
+    color: #ffb8de;
+  }
+
+  .note {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #eeeafa;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .chip {
+    padding: 9px 13px;
+    border-radius: 999px;
+    background: rgba(255,160,215,.12);
+    border: 1px solid rgba(255,190,225,.2);
+  }
+
+  .secret {
+    text-align: center;
+  }
+
+  .lock {
+    font-size: 64px;
+  }
+
+  .secret-message {
+    display: none;
+    margin-top: 22px;
+    font-size: 23px;
+    line-height: 1.8;
+    color: #ffe2f2;
+  }
+
+  .secret-message.show {
+    display: block;
+    animation: appear .8s ease;
+  }
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .signature {
+    margin-top: 24px;
+    text-align: right;
+    color: #ffb6dc;
+    font-style: italic;
+  }
+
+  .tiny {
+    font-size: 13px;
+    color: #9f9dbd;
+    margin-top: 16px;
+  }
+
+  .heart {
+    position: fixed;
+    font-size: 18px;
+    pointer-events: none;
+    animation: rise 5s linear forwards;
+    z-index: 20;
+  }
+
+  @keyframes rise {
+    from {
+      transform: translateY(0) scale(.8);
+      opacity: 0;
+    }
+
+    15% {
+      opacity: 1;
+    }
+
+    to {
+      transform:
+        translateY(-110vh)
+        translateX(50px)
+        scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  @media(max-width:500px) {
+
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .portal {
+      min-height: 145px;
+      padding: 15px;
+    }
+
+    .portal .icon {
+      font-size: 34px;
+    }
+
+    .note {
+      font-size: 16px;
+    }
+  }
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     WELCOME SCREEN
+========================= -->
+
+<section id="welcome" class="screen active hero">
+
+  <div class="moon">
+    🌙
+  </div>
+
+  <h1>
+    Welcome to
+    <span class="pink">your</span>
+    universe
+  </h1>
+
+  <p class="sub">
+
+    A tiny little corner of the internet made for the girl
+    who somehow became my favourite part of life...
+
+    <br>
+
+    <span class="pink">
+      myuu Vidisha ❤️
+    </span>
+
+  </p>
+
+  <button
+    class="enter"
+    onclick="show('universe')"
+  >
+    Enter my universe ✨
+  </button>
+
+</section>
+
+
+
+<!-- =========================
+     MAIN UNIVERSE
+========================= -->
+
+<section id="universe" class="screen">
+
+  <div class="top">
+
+    <h2>
+      MY LITTLE UNIVERSE 🌌
+    </h2>
+
+    <p>
+      Everything here has a tiny piece of you in it.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+
+    <div
+      class="portal"
+      onclick="show('rose')"
+    >
+
+      <div class="icon">
+        🌹
+      </div>
+
+      <strong>
+        My Rose
+      </strong>
+
+      <small>
+        the prettiest part
+      </small>
+
+    </div>
+
+
+
+    <div
+      class="portal"
+      onclick="show('comfort')"
+    >
+
+      <div class="icon">
+        🧸
+      </div>
+
+      <strong>
+        My Comfort
+      </strong>
+
+      <small>
+        where my heart rests
+      </small>
+
+    </div>
+
+
+
+    <div
+      class="portal"
+      onclick="show('khushiii')"
+    >
+
+      <div class="icon">
+        ✨
+      </div>
+
+      <strong>
+        Meri Khushhiii
+      </strong>
+
+      <small>
+        my favourite smile
+      </small>
+
+    </div>
+
+
+
+    <div
+      class="portal"
+      onclick="show('littleworld')"
+    >
+
+      <div class="icon">
+        🍭
+      </div>
+
+      <strong>
+        Our Little World
+      </strong>
+
+      <small>
+        just us being us
+      </small>
+
+    </div>
+
+
+
+    <div
+      class="portal"
+      onclick="show('words')"
+    >
+
+      <div class="icon">
+        💌
+      </div>
+
+      <strong>
+        Words I Don't Say Enough
+      </strong>
+
+      <small>
+        please read this one
+      </small>
+
+    </div>
+
+
+
+    <div
+      class="portal"
+      onclick="show('secret')"
+    >
+
+      <div class="icon">
+        🔐
+      </div>
+
+      <strong>
+        One Secret
+      </strong>
+
+      <small>
+        okay... don't peek 👀
+      </small>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     MY ROSE
+========================= -->
+
+<section id="rose" class="screen">
+
+  <div class="content glass">
+
+    <h2>
+      🌹 My Rose
+    </h2>
+
+    <p class="note">
+
+      Aapko pata hai what I love the most?
+
+      It's not just your smile or your eyes.
+
+      It's the way you make ordinary moments feel special.
+
+      You have this little way of making my day better
+      without even tryingggg.
+
+    </p>
+
+
+    <p class="note">
+
+      And honestly...
+
+      among all the beautiful things in this world,
+      somehow my heart still picked
+
+      <span class="pink">
+        you
+      </span>.
+
+    </p>
+
+
+    <div class="chips">
+
+      <span class="chip">
+        meri Rose 🌹
+      </span>
+
+      <span class="chip">
+        meri Khushhiii ✨
+      </span>
+
+      <span class="chip">
+        meri Loveee ❤️
+      </span>
+
+    </div>
+
+
+    <div class="signature">
+
+      — your idiot, Prakhar
+
+    </div>
+
+
+    <button
+      class="back"
+      onclick="show('universe')"
+    >
+
+      ← back to the stars
+
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     MY COMFORT
+========================= -->
+
+<section id="comfort" class="screen">
+
+  <div class="content glass">
+
+    <h2>
+      🧸 My Comfort
+    </h2>
+
+
+    <p class="note">
+
+      You don't always have to do anything for me.
+
+      Sometimes just talking to you,
+      hearing your voice,
+      or seeing you happy
+      is enough to make everything feel
+      a little less heavy.
+
+    </p>
+
+
+    <p class="note">
+
+      You're not just someone I love.
+
+      You're the person my heart naturally looks for
+      when it wants a little peace.
+
+    </p>
+
+
+    <div class="signature">
+
+      My comfort.
+      My Loveee.
+      MY HOME!! ❤️
+
+    </div>
+
+
+    <button
+      class="back"
+      onclick="show('universe')"
+    >
+
+      ← back to the stars
+
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     MERI KHUSHIII
+========================= -->
+
+<section id="khushiii" class="screen">
+
+  <div class="content glass">
+
+    <h2>
+      ✨ Meri Khushhiii
+    </h2>
+
+
+    <p class="note">
+
+      I hope you know how much your happiness matters to me.
+
+      Your random excitement,
+      your cute little reactions,
+      your messages,
+      your laugh...
+
+      all those tiny things are somehow
+      my favourite things.
+
+    </p>
+
+
+    <p class="note">
+
+      So if you're smiling while reading this right nowww,
+
+      then mission successful.
+
+      🫠❤️
+
+    </p>
+
+
+    <button
+      class="back"
+      onclick="show('universe')"
+    >
+
+      ← back to the stars
+
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     OUR LITTLE WORLD
+========================= -->
+
+<section id="littleworld" class="screen">
+
+  <div class="content glass">
+
+    <h2>
+      🍭 Our Little World
+    </h2>
+
+
+    <p class="note">
+
+      I want our little world to have
+      silly jokes,
+      random conversations,
+      stupid arguments,
+      cute apologies,
+      late-night talks,
+
+      and a whole lot of
+
+      “I miss youuu”
+
+      messages.
+
+    </p>
+
+
+    <p class="note">
+
+      Not everything has to be perfect.
+
+      I just want it to be
+
+      <span class="pink">
+        ours
+      </span>.
+
+    </p>
+
+
+    <div class="chips">
+
+      <span class="chip">
+        Rose 🌹
+      </span>
+
+      <span class="chip">
+        Plushies 🧸
+      </span>
+
+      <span class="chip">
+        Cotton Candy 🍭
+      </span>
+
+    </div>
+
+
+    <button
+      class="back"
+      onclick="show('universe')"
+    >
+
+      ← back to the stars
+
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     WORDS I DON'T SAY ENOUGH
+========================= -->
+
+<section id="words" class="screen">
+
+  <div class="content glass">
+
+    <h2>
+      💌 Words I Don't Say Enough
+    </h2>
+
+
+    <p class="note">
+
+      I know lately I couldn't give you
+      the time you deserve,
+
+      and I know that hurt you.
+
+      I'm genuinely sorry for making you feel
+      like you mattered any less.
+
+    </p>
+
+
+    <p class="note">
+
+      Please believe me when I say this:
+
+      being busy never meant loving you less.
+
+      I still think about you,
+      I still care about the tiniest things,
+
+      and I still feel ridiculously lucky
+      that I get to call you mine.
+
+    </p>
+
+
+    <p class="note">
+
+      I can't promise that every day will be perfect,
+
+      but I can promise that I'll keep trying
+      to make you feel loved,
+      heard,
+      respected,
+
+      and important.
+
+    </p>
+
+
+    <p class="note pink">
+
+      <strong>
+
+        I love youuuuu.
+
+        More than I know how to explain. ❤️
+
+      </strong>
+
+    </p>
+
+
+    <div class="signature">
+
+      Always and forever yours,
+
+      <br>
+
+      Prakhar
+
+    </div>
+
+
+    <button
+      class="back"
+      onclick="show('universe')"
+    >
+
+      ← back to the stars
+
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     SECRET
+========================= -->
+
+<section id="secret" class="screen">
+
+  <div class="content glass secret">
+
+    <div class="lock">
+      🔐
+    </div>
+
+
+    <h2>
+      One Secret
+    </h2>
+
+
+    <p class="sub">
+
+      Okayyy...
+
+      you've come this far.
+
+      You can open it now.
+
+    </p>
+
+
+    <button onclick="unlock()">
+
+      Open the secret ❤️
+
+    </button>
+
+
+    <div
+      id="secretMessage"
+      class="secret-message"
+    >
+
+      Out of every possible universe,
+      every possible timeline,
+      every possible version of my life...
+
+      <br><br>
+
+      <span class="pink">
+        I'd still look for you.
+      </span>
+
+      <br><br>
+
+      And if I found you again,
+
+      <br>
+
+      I'd choose you againnnn. ❤️
+
+    </div>
+
+
+    <button
+      class="back"
+      onclick="show('universe')"
+    >
+
+      ← back to the stars
+
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function show(id) {
+
+  document
+    .querySelectorAll('.screen')
+    .forEach(
+      s => s.classList.remove('active')
+    );
+
+  document
+    .getElementById(id)
+    .classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+}
+
+
+
+function unlock() {
+
+  document
+    .getElementById('secretMessage')
+    .classList.add('show');
+
+
+  for(let i = 0; i < 14; i++) {
+
+    setTimeout(() => {
+
+      const h =
+        document.createElement('div');
+
+      h.className = 'heart';
+
+      h.textContent =
+        ['❤️','💗','💖','✨','🌸']
+        [Math.floor(Math.random() * 5)];
+
+
+      h.style.left =
+        (10 + Math.random() * 80) + 'vw';
+
+
+      h.style.bottom =
+        '-20px';
+
+
+      h.style.animationDuration =
+        (3 + Math.random() * 3) + 's';
+
+
+      document.body.appendChild(h);
+
+
+      setTimeout(
+        () => h.remove(),
+        6500
+      );
+
+    }, i * 120);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
