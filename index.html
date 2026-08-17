@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Vidisha's Universe ❤️</title>
+
 
     <style>
 
@@ -14,27 +21,39 @@
             padding: 0;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             min-height: 100vh;
-            font-family: Georgia, "Times New Roman", serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             color: white;
+
             overflow-x: hidden;
 
             background:
+
                 radial-gradient(
                     circle at 20% 20%,
                     rgba(255, 120, 190, 0.15),
                     transparent 30%
                 ),
+
                 radial-gradient(
                     circle at 80% 80%,
                     rgba(110, 120, 255, 0.14),
                     transparent 30%
                 ),
+
                 linear-gradient(
                     135deg,
                     #080b1b,
@@ -43,386 +62,177 @@
                 );
         }
 
-        /* ------------------------------
-           FLOATING HEARTS
-        ------------------------------ */
 
-        .hearts {
+        /* ==================================================
+           OPENING SCREEN
+        ================================================== */
+
+        #opening-screen {
+
             position: fixed;
+
             inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
 
-        .heart {
-            position: absolute;
-            bottom: -50px;
-            font-size: 18px;
-            opacity: 0;
-            animation: floatHeart linear infinite;
-        }
+            z-index: 9999;
 
-        .heart:nth-child(1) {
-            left: 8%;
-            animation-duration: 10s;
-            animation-delay: 1s;
-        }
-
-        .heart:nth-child(2) {
-            left: 22%;
-            animation-duration: 13s;
-            animation-delay: 4s;
-        }
-
-        .heart:nth-child(3) {
-            left: 38%;
-            animation-duration: 11s;
-            animation-delay: 2s;
-        }
-
-        .heart:nth-child(4) {
-            left: 55%;
-            animation-duration: 15s;
-            animation-delay: 6s;
-        }
-
-        .heart:nth-child(5) {
-            left: 72%;
-            animation-duration: 12s;
-            animation-delay: 3s;
-        }
-
-        .heart:nth-child(6) {
-            left: 88%;
-            animation-duration: 14s;
-            animation-delay: 7s;
-        }
-
-        @keyframes floatHeart {
-
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-
-            10% {
-                opacity: 0.7;
-            }
-
-            90% {
-                opacity: 0.4;
-            }
-
-            100% {
-                transform: translateY(-110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* ------------------------------
-           MAIN CONTAINER
-        ------------------------------ */
-
-        main {
-            position: relative;
-            z-index: 1;
-        }
-
-        section {
-            width: min(1100px, 92%);
-            margin: auto;
-            padding: 100px 0;
-        }
-
-        /* ------------------------------
-           HERO
-        ------------------------------ */
-
-        .hero {
-            min-height: 100vh;
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             text-align: center;
-            padding: 40px 20px;
-        }
 
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .small-title {
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-size: 13px;
-            color: #ff9dcc;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(48px, 9vw, 100px);
-            line-height: 1;
-            margin-bottom: 25px;
-
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #ffb6dc,
-                #c8c9ff,
-                #ffffff
-            );
-
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-
-            animation: gradientMove 7s ease infinite;
-        }
-
-        @keyframes gradientMove {
-
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .hero p {
-            font-size: 19px;
-            line-height: 1.8;
-            color: #d8d9ed;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .heart-big {
-            font-size: 55px;
-            margin-top: 35px;
-            animation: heartbeat 2s infinite;
-        }
-
-        @keyframes heartbeat {
-
-            0%, 100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.18);
-            }
-        }
-
-        /* ------------------------------
-           SECTION TITLES
-        ------------------------------ */
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .section-title span {
-            display: block;
-            color: #ff94c9;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-size: 12px;
-            margin-bottom: 12px;
-        }
-
-        .section-title h2 {
-            font-size: clamp(32px, 6vw, 52px);
-            font-weight: normal;
-        }
-
-        .section-title p {
-            margin-top: 15px;
-            color: #aaaec8;
-            font-size: 16px;
-        }
-
-        /* ------------------------------
-           PHOTO GALLERY
-        ------------------------------ */
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .photo-card {
-            position: relative;
-            height: 420px;
-            overflow: hidden;
-            border-radius: 22px;
-
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.12);
-
-            box-shadow:
-                0 20px 60px rgba(0,0,0,0.35);
-
-            transition:
-                transform 0.4s ease,
-                box-shadow 0.4s ease;
-        }
-
-        .photo-card:hover {
-            transform: translateY(-10px) scale(1.015);
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.5);
-        }
-
-        .photo-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-
-            transition:
-                transform 0.7s ease,
-                filter 0.7s ease;
-        }
-
-        .photo-card:hover img {
-            transform: scale(1.08);
-            filter: brightness(0.8);
-        }
-
-        .photo-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-
-            padding: 50px 20px 20px;
+            padding: 30px;
 
             background:
-                linear-gradient(
-                    transparent,
-                    rgba(0,0,0,0.8)
-                );
-        }
 
-        .photo-caption h3 {
-            font-size: 21px;
-            font-weight: normal;
-        }
+                radial-gradient(
+                    circle at 50% 40%,
+                    rgba(255, 105, 180, 0.18),
+                    transparent 35%
+                ),
 
-        .photo-caption p {
-            color: #d0d0df;
-            font-size: 13px;
-            margin-top: 5px;
-        }
+                radial-gradient(
+                    circle at 20% 80%,
+                    rgba(120, 120, 255, 0.12),
+                    transparent 30%
+                ),
 
-        /* ------------------------------
-           MESSAGE
-        ------------------------------ */
-
-        .message-box {
-            max-width: 850px;
-            margin: auto;
-
-            padding: 50px;
-
-            border-radius: 30px;
-
-            background:
                 linear-gradient(
                     135deg,
-                    rgba(255,255,255,0.08),
-                    rgba(255,255,255,0.03)
+                    #050713,
+                    #0d1028,
+                    #050610
                 );
 
-            border: 1px solid rgba(255,255,255,0.12);
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.3);
+            transition:
+                opacity 1.2s ease,
+                visibility 1.2s ease;
         }
 
-        .message-box p {
-            color: #dedfec;
-            font-size: 18px;
-            line-height: 2;
-            text-align: center;
+
+        #opening-screen.hide {
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
         }
 
-        .message-box .signature {
-            margin-top: 30px;
+
+        .opening-content {
+
+            max-width: 850px;
+
+            animation:
+                openingAppear 2s ease forwards;
+        }
+
+
+        @keyframes openingAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(0.97);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        .opening-small {
+
             color: #ff9dcc;
-            font-size: 22px;
-            text-align: center;
+
+            text-transform: uppercase;
+
+            letter-spacing: 6px;
+
+            font-size: 12px;
+
+            margin-bottom: 25px;
         }
 
-        /* ------------------------------
-           REASONS
-        ------------------------------ */
 
-        .reasons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        .opening-title {
+
+            font-size:
+                clamp(
+                    48px,
+                    10vw,
+                    105px
+                );
+
+            line-height: 1;
+
+            margin-bottom: 30px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #ffb6dc,
+                    #c8c9ff,
+                    #ffffff
+                );
+
+            background-size: 300% 300%;
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+            animation:
+                gradientMove 7s ease infinite;
         }
 
-        .reason {
-            padding: 30px 25px;
-            text-align: center;
 
-            border-radius: 20px;
+        .opening-text {
 
-            background: rgba(255,255,255,0.045);
-            border: 1px solid rgba(255,255,255,0.08);
+            max-width: 650px;
 
-            transition: 0.35s ease;
+            margin: auto;
+
+            color: #cfd1e8;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin-bottom: 40px;
         }
 
-        .reason:hover {
-            transform: translateY(-7px);
-            background: rgba(255,255,255,0.08);
-        }
 
-        .reason-icon {
-            font-size: 35px;
-            margin-bottom: 18px;
-        }
+        .enter-button {
 
-        .reason h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            font-weight: normal;
-        }
+            border: 1px solid
+                rgba(255,255,255,0.2);
 
-        .reason p {
-            color: #aeb1c9;
-            line-height: 1.7;
-            font-size: 14px;
-        }
+            padding:
+                17px
+                35px;
 
-        /* ------------------------------
-           SPECIAL BUTTON
-        ------------------------------ */
-
-        .center {
-            text-align: center;
-        }
-
-        .love-button {
-            border: none;
-            padding: 16px 32px;
             border-radius: 50px;
 
             font-family: inherit;
+
             font-size: 16px;
 
             color: white;
@@ -430,6 +240,7 @@
             cursor: pointer;
 
             background:
+
                 linear-gradient(
                     135deg,
                     #ff6fae,
@@ -437,148 +248,957 @@
                 );
 
             box-shadow:
-                0 10px 35px rgba(255,100,180,0.25);
+                0 10px 40px
+                rgba(255,100,180,0.25);
 
-            transition: 0.3s ease;
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
         }
 
-        .love-button:hover {
-            transform: translateY(-3px) scale(1.04);
+
+        .enter-button:hover {
+
+            transform:
+                translateY(-4px)
+                scale(1.04);
 
             box-shadow:
-                0 15px 45px rgba(255,100,180,0.4);
+                0 15px 50px
+                rgba(255,100,180,0.45);
         }
 
-        /* ------------------------------
+
+        .opening-heart {
+
+            font-size: 45px;
+
+            margin-top: 35px;
+
+            animation:
+                heartbeat 2s infinite;
+        }
+
+
+        /* ==================================================
+           FLOATING HEARTS
+        ================================================== */
+
+        .hearts {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            overflow: hidden;
+        }
+
+
+        .heart {
+
+            position: absolute;
+
+            bottom: -50px;
+
+            font-size: 18px;
+
+            opacity: 0;
+
+            animation:
+                floatHeart linear infinite;
+        }
+
+
+        .heart:nth-child(1) {
+
+            left: 8%;
+
+            animation-duration: 10s;
+
+            animation-delay: 1s;
+        }
+
+
+        .heart:nth-child(2) {
+
+            left: 22%;
+
+            animation-duration: 13s;
+
+            animation-delay: 4s;
+        }
+
+
+        .heart:nth-child(3) {
+
+            left: 38%;
+
+            animation-duration: 11s;
+
+            animation-delay: 2s;
+        }
+
+
+        .heart:nth-child(4) {
+
+            left: 55%;
+
+            animation-duration: 15s;
+
+            animation-delay: 6s;
+        }
+
+
+        .heart:nth-child(5) {
+
+            left: 72%;
+
+            animation-duration: 12s;
+
+            animation-delay: 3s;
+        }
+
+
+        .heart:nth-child(6) {
+
+            left: 88%;
+
+            animation-duration: 14s;
+
+            animation-delay: 7s;
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+
+            10% {
+
+                opacity: 0.7;
+            }
+
+
+            90% {
+
+                opacity: 0.4;
+            }
+
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* ==================================================
+           MAIN CONTAINER
+        ================================================== */
+
+        main {
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        section {
+
+            width:
+                min(
+                    1100px,
+                    92%
+                );
+
+            margin: auto;
+
+            padding: 100px 0;
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding:
+                40px
+                20px;
+        }
+
+
+        .hero-content {
+
+            max-width: 900px;
+        }
+
+
+        .small-title {
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            font-size: 13px;
+
+            color: #ff9dcc;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(
+                    48px,
+                    9vw,
+                    100px
+                );
+
+            line-height: 1;
+
+            margin-bottom: 25px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #ffb6dc,
+                    #c8c9ff,
+                    #ffffff
+                );
+
+            background-size: 300% 300%;
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+            animation:
+                gradientMove 7s ease infinite;
+        }
+
+
+        @keyframes gradientMove {
+
+            0% {
+
+                background-position:
+                    0% 50%;
+            }
+
+            50% {
+
+                background-position:
+                    100% 50%;
+            }
+
+            100% {
+
+                background-position:
+                    0% 50%;
+            }
+
+        }
+
+
+        .hero p {
+
+            font-size: 19px;
+
+            line-height: 1.8;
+
+            color: #d8d9ed;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        .heart-big {
+
+            font-size: 55px;
+
+            margin-top: 35px;
+
+            animation:
+                heartbeat 2s infinite;
+        }
+
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                transform:
+                    scale(1.18);
+            }
+
+        }
+
+
+        /* ==================================================
+           SECTION TITLES
+        ================================================== */
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 55px;
+        }
+
+
+        .section-title span {
+
+            display: block;
+
+            color: #ff94c9;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            font-size: 12px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .section-title h2 {
+
+            font-size:
+                clamp(
+                    32px,
+                    6vw,
+                    52px
+                );
+
+            font-weight: normal;
+        }
+
+
+        .section-title p {
+
+            margin-top: 15px;
+
+            color: #aaaec8;
+
+            font-size: 16px;
+        }
+
+
+        /* ==================================================
+           PHOTO GALLERY
+        ================================================== */
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .photo-card {
+
+            position: relative;
+
+            height: 420px;
+
+            overflow: hidden;
+
+            border-radius: 22px;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,0.35);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+
+        .photo-card:hover {
+
+            transform:
+                translateY(-10px)
+                scale(1.015);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,0.5);
+        }
+
+
+        .photo-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform 0.7s ease,
+                filter 0.7s ease;
+        }
+
+
+        .photo-card:hover img {
+
+            transform:
+                scale(1.08);
+
+            filter:
+                brightness(0.8);
+        }
+
+
+        .photo-caption {
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            right: 0;
+
+            padding:
+                50px
+                20px
+                20px;
+
+            background:
+
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,0.8)
+                );
+        }
+
+
+        .photo-caption h3 {
+
+            font-size: 21px;
+
+            font-weight: normal;
+        }
+
+
+        .photo-caption p {
+
+            color: #d0d0df;
+
+            font-size: 13px;
+
+            margin-top: 5px;
+        }
+
+
+        /* ==================================================
+           MESSAGE
+        ================================================== */
+
+        .message-box {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 50px;
+
+            border-radius: 30px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.08),
+                    rgba(255,255,255,0.03)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,0.3);
+        }
+
+
+        .message-box p {
+
+            color: #dedfec;
+
+            font-size: 18px;
+
+            line-height: 2;
+
+            text-align: center;
+        }
+
+
+        .message-box .signature {
+
+            margin-top: 30px;
+
+            color: #ff9dcc;
+
+            font-size: 22px;
+
+            text-align: center;
+        }
+
+
+        /* ==================================================
+           REASONS
+        ================================================== */
+
+        .reasons {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .reason {
+
+            padding:
+                30px
+                25px;
+
+            text-align: center;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            transition:
+                0.35s ease;
+        }
+
+
+        .reason:hover {
+
+            transform:
+                translateY(-7px);
+
+            background:
+                rgba(255,255,255,0.08);
+        }
+
+
+        .reason-icon {
+
+            font-size: 35px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .reason h3 {
+
+            font-size: 20px;
+
+            margin-bottom: 12px;
+
+            font-weight: normal;
+        }
+
+
+        .reason p {
+
+            color: #aeb1c9;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        /* ==================================================
+           SPECIAL BUTTON
+        ================================================== */
+
+        .center {
+
+            text-align: center;
+        }
+
+
+        .love-button {
+
+            border: none;
+
+            padding:
+                16px
+                32px;
+
+            border-radius: 50px;
+
+            font-family: inherit;
+
+            font-size: 16px;
+
+            color: white;
+
+            cursor: pointer;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #ff6fae,
+                    #a77bff
+                );
+
+            box-shadow:
+                0 10px 35px
+                rgba(255,100,180,0.25);
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .love-button:hover {
+
+            transform:
+                translateY(-3px)
+                scale(1.04);
+
+            box-shadow:
+                0 15px 45px
+                rgba(255,100,180,0.4);
+        }
+
+
+        /* ==================================================
            SECRET MESSAGE
-        ------------------------------ */
+        ================================================== */
 
         #secret {
+
             display: none;
+
             margin-top: 30px;
 
             padding: 30px;
 
             border-radius: 20px;
 
-            background: rgba(255,255,255,0.06);
+            background:
+                rgba(255,255,255,0.06);
 
-            border: 1px solid rgba(255,255,255,0.1);
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
 
             color: #f1d9e8;
 
             line-height: 1.8;
+
             text-align: center;
         }
 
-        /* ------------------------------
+
+        /* ==================================================
            FOOTER
-        ------------------------------ */
+        ================================================== */
 
         footer {
+
             text-align: center;
-            padding: 60px 20px 80px;
+
+            padding:
+                60px
+                20px
+                80px;
 
             color: #8589a5;
+
             font-size: 14px;
         }
 
+
         footer .footer-heart {
+
             color: #ff82b9;
+
             font-size: 22px;
+
             margin-bottom: 10px;
         }
 
-        /* ------------------------------
+
+        /* ==================================================
            RESPONSIVE
-        ------------------------------ */
+        ================================================== */
 
         @media (max-width: 850px) {
 
             .gallery {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
+
             .reasons {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
         }
 
+
         @media (max-width: 600px) {
 
             section {
+
                 padding: 70px 0;
             }
 
+
             .gallery {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
             }
+
 
             .reasons {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
             }
 
+
             .photo-card {
+
                 height: 500px;
             }
 
+
             .message-box {
-                padding: 30px 22px;
+
+                padding:
+                    30px
+                    22px;
             }
 
+
             .message-box p {
+
+                font-size: 16px;
+            }
+
+
+            .opening-small {
+
+                letter-spacing: 3px;
+
+                font-size: 10px;
+            }
+
+
+            .opening-text {
+
                 font-size: 16px;
             }
 
         }
 
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- FLOATING HEARTS -->
+
+    <!-- ==================================================
+         OPENING SCREEN
+    ================================================== -->
+
+    <div id="opening-screen">
+
+        <div class="opening-content">
+
+            <div class="opening-small">
+                A little universe made for you
+            </div>
+
+
+            <h1 class="opening-title">
+
+                Vidisha's<br>
+                Universe ❤️
+
+            </h1>
+
+
+            <p class="opening-text">
+
+                Somewhere between all the ordinary days,
+                you became something extraordinary.
+
+                <br>
+
+                So I made you a tiny universe of memories.
+
+            </p>
+
+
+            <button
+                class="enter-button"
+                onclick="enterUniverse()"
+            >
+
+                Enter My Universe →
+
+            </button>
+
+
+            <div class="opening-heart">
+                ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         FLOATING HEARTS
+    ================================================== -->
 
     <div class="hearts">
 
         <div class="heart">❤️</div>
+
         <div class="heart">💗</div>
+
         <div class="heart">💕</div>
+
         <div class="heart">💖</div>
+
         <div class="heart">💗</div>
+
         <div class="heart">❤️</div>
 
     </div>
 
 
+
     <main>
 
-        <!-- HERO -->
+
+        <!-- ==================================================
+             HERO
+        ================================================== -->
 
         <section class="hero">
 
             <div class="hero-content">
 
                 <div class="small-title">
+
                     A little universe made for you
+
                 </div>
 
+
                 <h1>
+
                     Vidisha's<br>
                     Universe ❤️
+
                 </h1>
 
+
                 <p>
+
                     Some people become a beautiful part of your life.
                     Some become the reason ordinary days feel special.
                     And then there are people who somehow become
                     their own little universe.
+
                 </p>
 
+
                 <div class="heart-big">
+
                     ❤️
+
                 </div>
 
             </div>
@@ -586,7 +1206,10 @@
         </section>
 
 
-        <!-- PHOTOS -->
+
+        <!-- ==================================================
+             PHOTOS
+        ================================================== -->
 
         <section>
 
@@ -596,9 +1219,11 @@
                     Little moments
                 </span>
 
+
                 <h2>
                     Her beautiful world
                 </h2>
+
 
                 <p>
                     A few photographs that deserve their own little place here.
@@ -619,11 +1244,13 @@
                         alt="Vidisha"
                     >
 
+
                     <div class="photo-caption">
 
                         <h3>
                             That smile ❤️
                         </h3>
+
 
                         <p>
                             One of those pictures that speaks for itself.
@@ -632,6 +1259,7 @@
                     </div>
 
                 </div>
+
 
 
                 <!-- PHOTO 2 -->
@@ -643,11 +1271,13 @@
                         alt="Vidisha"
                     >
 
+
                     <div class="photo-caption">
 
                         <h3>
                             Simply beautiful
                         </h3>
+
 
                         <p>
                             A moment worth keeping forever.
@@ -656,6 +1286,7 @@
                     </div>
 
                 </div>
+
 
 
                 <!-- PHOTO 3 -->
@@ -667,11 +1298,13 @@
                         alt="Vidisha"
                     >
 
+
                     <div class="photo-caption">
 
                         <h3>
                             The little details ✨
                         </h3>
+
 
                         <p>
                             Somehow the smallest moments become the biggest memories.
@@ -680,6 +1313,7 @@
                     </div>
 
                 </div>
+
 
 
                 <!-- PHOTO 4 -->
@@ -691,11 +1325,13 @@
                         alt="Vidisha"
                     >
 
+
                     <div class="photo-caption">
 
                         <h3>
                             A little sparkle 💗
                         </h3>
+
 
                         <p>
                             Another memory that belongs here.
@@ -704,6 +1340,7 @@
                     </div>
 
                 </div>
+
 
 
                 <!-- PHOTO 5 -->
@@ -715,11 +1352,13 @@
                         alt="Vidisha"
                     >
 
+
                     <div class="photo-caption">
 
                         <h3>
                             Flowers & smiles 🌸
                         </h3>
+
 
                         <p>
                             A picture that feels like a memory.
@@ -728,6 +1367,7 @@
                     </div>
 
                 </div>
+
 
 
                 <!-- PHOTO 6 -->
@@ -739,11 +1379,13 @@
                         alt="Vidisha"
                     >
 
+
                     <div class="photo-caption">
 
                         <h3>
                             Just you 💕
                         </h3>
+
 
                         <p>
                             No complicated words needed.
@@ -752,6 +1394,7 @@
                     </div>
 
                 </div>
+
 
 
                 <!-- PHOTO 7 -->
@@ -763,11 +1406,13 @@
                         alt="Vidisha"
                     >
 
+
                     <div class="photo-caption">
 
                         <h3>
                             A rose for you 🌹
                         </h3>
+
 
                         <p>
                             Because some pictures deserve to stand alone.
@@ -783,7 +1428,10 @@
         </section>
 
 
-        <!-- MESSAGE -->
+
+        <!-- ==================================================
+             MESSAGE
+        ================================================== -->
 
         <section>
 
@@ -792,6 +1440,7 @@
                 <span>
                     A message
                 </span>
+
 
                 <h2>
                     For you
@@ -840,7 +1489,10 @@
         </section>
 
 
-        <!-- REASONS -->
+
+        <!-- ==================================================
+             REASONS
+        ================================================== -->
 
         <section>
 
@@ -849,6 +1501,7 @@
                 <span>
                     Just because
                 </span>
+
 
                 <h2>
                     A few things worth remembering
@@ -866,9 +1519,11 @@
                         🌸
                     </div>
 
+
                     <h3>
                         Your smile
                     </h3>
+
 
                     <p>
                         It has a way of making an ordinary
@@ -878,15 +1533,18 @@
                 </div>
 
 
+
                 <div class="reason">
 
                     <div class="reason-icon">
                         ✨
                     </div>
 
+
                     <h3>
                         Your presence
                     </h3>
+
 
                     <p>
                         Some people don't need to do anything
@@ -896,15 +1554,18 @@
                 </div>
 
 
+
                 <div class="reason">
 
                     <div class="reason-icon">
                         💗
                     </div>
 
+
                     <h3>
                         The little things
                     </h3>
+
 
                     <p>
                         Sometimes it's the tiny conversations
@@ -914,15 +1575,18 @@
                 </div>
 
 
+
                 <div class="reason">
 
                     <div class="reason-icon">
                         🌙
                     </div>
 
+
                     <h3>
                         The memories
                     </h3>
+
 
                     <p>
                         Every picture here is just another
@@ -932,15 +1596,18 @@
                 </div>
 
 
+
                 <div class="reason">
 
                     <div class="reason-icon">
                         🌹
                     </div>
 
+
                     <h3>
                         The person you are
                     </h3>
+
 
                     <p>
                         Not because of one particular thing,
@@ -950,15 +1617,18 @@
                 </div>
 
 
+
                 <div class="reason">
 
                     <div class="reason-icon">
                         💫
                     </div>
 
+
                     <h3>
                         Simply you
                     </h3>
+
 
                     <p>
                         Sometimes that's more than enough.
@@ -972,7 +1642,10 @@
         </section>
 
 
-        <!-- SECRET MESSAGE -->
+
+        <!-- ==================================================
+             SECRET MESSAGE
+        ================================================== -->
 
         <section>
 
@@ -981,6 +1654,7 @@
                 <span>
                     One last thing
                 </span>
+
 
                 <h2>
                     There's something hidden here...
@@ -995,7 +1669,9 @@
                     class="love-button"
                     onclick="showSecret()"
                 >
+
                     Open the secret ❤️
+
                 </button>
 
 
@@ -1011,8 +1687,10 @@
                     <br><br>
 
                     <strong>
+
                         You deserve all the beautiful things
                         life has to offer.
+
                     </strong>
 
                     <br><br>
@@ -1029,7 +1707,10 @@
     </main>
 
 
-    <!-- FOOTER -->
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
 
     <footer>
 
@@ -1037,9 +1718,12 @@
             ❤️
         </div>
 
+
         Made especially for Vidisha
 
+
         <br>
+
 
         <span>
             A tiny universe on the internet.
@@ -1048,23 +1732,71 @@
     </footer>
 
 
+
     <script>
+
+
+        /* ==================================================
+           ENTER UNIVERSE
+        ================================================== */
+
+        function enterUniverse() {
+
+            const opening =
+                document.getElementById(
+                    "opening-screen"
+                );
+
+
+            opening.classList.add("hide");
+
+
+            document.body.style.overflowX =
+                "hidden";
+
+
+            setTimeout(function() {
+
+                opening.style.display =
+                    "none";
+
+            }, 1300);
+
+        }
+
+
+
+        /* ==================================================
+           SECRET MESSAGE
+        ================================================== */
 
         function showSecret() {
 
-            const secret = document.getElementById("secret");
+            const secret =
+                document.getElementById(
+                    "secret"
+                );
 
-            if (secret.style.display === "block") {
 
-                secret.style.display = "none";
+            if (
+                secret.style.display ===
+                "block"
+            ) {
 
-            } else {
+                secret.style.display =
+                    "none";
 
-                secret.style.display = "block";
+            }
+
+            else {
+
+                secret.style.display =
+                    "block";
 
             }
 
         }
+
 
     </script>
 
