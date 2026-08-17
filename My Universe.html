@@ -1,1048 +1,1074 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vidisha's Universe ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  * {
-    box-sizing: border-box;
-  }
+    <title>Vidisha's Universe ❤️</title>
 
-  html, body {
-    margin: 0;
-    min-height: 100%;
-    font-family: Georgia, "Times New Roman", serif;
-    color: #fff;
-  }
+    <style>
 
-  body {
-    background:
-      radial-gradient(circle at 20% 20%, rgba(255,120,190,.18), transparent 24%),
-      radial-gradient(circle at 80% 70%, rgba(110,120,255,.20), transparent 28%),
-      linear-gradient(135deg,#07081b,#11143a 48%,#070817);
-    overflow-x: hidden;
-  }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  body:before,
-  body:after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
+        html {
+            scroll-behavior: smooth;
+        }
 
-    background-image:
-      radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 1.5px),
-      radial-gradient(circle,rgba(255,190,235,.7) 0 1px,transparent 1.5px);
+        body {
+            min-height: 100vh;
+            font-family: Georgia, "Times New Roman", serif;
+            color: white;
+            overflow-x: hidden;
 
-    background-size: 97px 113px,151px 173px;
-    background-position: 10px 20px,40px 70px;
-    opacity: .55;
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255, 120, 190, 0.15),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(110, 120, 255, 0.14),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #080b1b,
+                    #11142e,
+                    #090a18
+                );
+        }
 
-    animation: twinkle 5s ease-in-out infinite alternate;
-  }
+        /* ------------------------------
+           FLOATING HEARTS
+        ------------------------------ */
 
-  @keyframes twinkle {
-    to {
-      opacity: .85;
-      transform: scale(1.01);
-    }
-  }
+        .hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
 
-  .screen {
-    min-height: 100vh;
-    display: none;
-    position: relative;
-    padding: 28px 18px 60px;
-  }
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 18px;
+            opacity: 0;
+            animation: floatHeart linear infinite;
+        }
 
-  .screen.active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+        .heart:nth-child(1) {
+            left: 8%;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
 
-  .hero {
-    justify-content: center;
-    text-align: center;
-  }
+        .heart:nth-child(2) {
+            left: 22%;
+            animation-duration: 13s;
+            animation-delay: 4s;
+        }
 
-  .moon {
-    font-size: 64px;
-    filter: drop-shadow(0 0 20px #ffd9f2);
-    animation: float 3s ease-in-out infinite;
-  }
+        .heart:nth-child(3) {
+            left: 38%;
+            animation-duration: 11s;
+            animation-delay: 2s;
+        }
 
-  @keyframes float {
-    50% {
-      transform: translateY(-10px);
-    }
-  }
+        .heart:nth-child(4) {
+            left: 55%;
+            animation-duration: 15s;
+            animation-delay: 6s;
+        }
 
-  h1 {
-    font-size: clamp(38px,9vw,72px);
-    margin: 15px 0 8px;
-    letter-spacing: .02em;
-  }
+        .heart:nth-child(5) {
+            left: 72%;
+            animation-duration: 12s;
+            animation-delay: 3s;
+        }
 
-  .pink {
-    color: #ffb4dc;
-  }
+        .heart:nth-child(6) {
+            left: 88%;
+            animation-duration: 14s;
+            animation-delay: 7s;
+        }
 
-  .sub {
-    max-width: 650px;
-    font-size: 18px;
-    line-height: 1.7;
-    color: #dddafa;
-  }
+        @keyframes floatHeart {
 
-  button {
-    border: 1px solid rgba(255,255,255,.28);
-    background: rgba(255,255,255,.10);
-    color: white;
-    border-radius: 999px;
-    padding: 13px 23px;
-    font-size: 16px;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    transition: .25s;
-    box-shadow: 0 8px 30px rgba(0,0,0,.2);
-  }
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
 
-  button:hover {
-    transform: translateY(-2px);
-    background: rgba(255,160,215,.2);
-  }
+            10% {
+                opacity: 0.7;
+            }
 
-  .enter {
-    margin-top: 24px;
-  }
+            90% {
+                opacity: 0.4;
+            }
 
-  .top {
-    width: min(1100px,100%);
-    text-align: center;
-  }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
 
-  .top h2 {
-    font-size: 36px;
-    margin: 8px 0;
-  }
+        /* ------------------------------
+           MAIN CONTAINER
+        ------------------------------ */
 
-  .top p {
-    color: #c9c8e7;
-  }
+        main {
+            position: relative;
+            z-index: 1;
+        }
 
-  .grid {
-    width: min(1000px,100%);
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
-    gap: 18px;
-    margin-top: 25px;
-  }
+        section {
+            width: min(1100px, 92%);
+            margin: auto;
+            padding: 100px 0;
+        }
 
-  .portal {
-    min-height: 170px;
-    border-radius: 25px;
-    padding: 24px;
-    text-align: center;
+        /* ------------------------------
+           HERO
+        ------------------------------ */
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
 
-    background:
-      linear-gradient(
-        145deg,
-        rgba(255,255,255,.12),
-        rgba(255,255,255,.045)
-      );
+        .hero-content {
+            max-width: 900px;
+        }
 
-    border: 1px solid rgba(255,255,255,.16);
+        .small-title {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 13px;
+            color: #ff9dcc;
+            margin-bottom: 20px;
+        }
 
-    box-shadow: 0 15px 45px rgba(0,0,0,.25);
+        .hero h1 {
+            font-size: clamp(48px, 9vw, 100px);
+            line-height: 1;
+            margin-bottom: 25px;
 
-    cursor: pointer;
-    transition: .3s;
-    position: relative;
-    overflow: hidden;
-  }
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #ffb6dc,
+                #c8c9ff,
+                #ffffff
+            );
 
-  .portal:hover {
-    transform: translateY(-7px) rotate(-.5deg);
-    border-color: rgba(255,180,220,.5);
-  }
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
 
-  .portal .icon {
-    font-size: 43px;
-    margin-bottom: 12px;
-  }
+            animation: gradientMove 7s ease infinite;
+        }
 
-  .portal strong {
-    font-size: 20px;
-  }
+        @keyframes gradientMove {
 
-  .portal small {
-    color: #bdbbd9;
-    margin-top: 7px;
-  }
+            0% {
+                background-position: 0% 50%;
+            }
 
-  .back {
-    margin-top: 28px;
-  }
+            50% {
+                background-position: 100% 50%;
+            }
 
-  .content {
-    width: min(760px,100%);
-    margin: auto;
-  }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-  .glass {
-    background: rgba(12,14,45,.72);
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 28px;
-    padding: 28px;
+        .hero p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #d8d9ed;
+            max-width: 700px;
+            margin: auto;
+        }
 
-    box-shadow: 0 20px 70px rgba(0,0,0,.35);
+        .heart-big {
+            font-size: 55px;
+            margin-top: 35px;
+            animation: heartbeat 2s infinite;
+        }
 
-    backdrop-filter: blur(14px);
-  }
+        @keyframes heartbeat {
 
-  .content h2 {
-    font-size: 34px;
-    text-align: center;
-    margin-top: 0;
-    color: #ffb8de;
-  }
+            0%, 100% {
+                transform: scale(1);
+            }
 
-  .note {
-    font-size: 18px;
-    line-height: 1.9;
-    color: #eeeafa;
-  }
+            50% {
+                transform: scale(1.18);
+            }
+        }
 
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: center;
-  }
+        /* ------------------------------
+           SECTION TITLES
+        ------------------------------ */
 
-  .chip {
-    padding: 9px 13px;
-    border-radius: 999px;
-    background: rgba(255,160,215,.12);
-    border: 1px solid rgba(255,190,225,.2);
-  }
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
 
-  .secret {
-    text-align: center;
-  }
+        .section-title span {
+            display: block;
+            color: #ff94c9;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
 
-  .lock {
-    font-size: 64px;
-  }
+        .section-title h2 {
+            font-size: clamp(32px, 6vw, 52px);
+            font-weight: normal;
+        }
 
-  .secret-message {
-    display: none;
-    margin-top: 22px;
-    font-size: 23px;
-    line-height: 1.8;
-    color: #ffe2f2;
-  }
+        .section-title p {
+            margin-top: 15px;
+            color: #aaaec8;
+            font-size: 16px;
+        }
 
-  .secret-message.show {
-    display: block;
-    animation: appear .8s ease;
-  }
+        /* ------------------------------
+           PHOTO GALLERY
+        ------------------------------ */
 
-  @keyframes appear {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
 
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
+        .photo-card {
+            position: relative;
+            height: 420px;
+            overflow: hidden;
+            border-radius: 22px;
 
-  .signature {
-    margin-top: 24px;
-    text-align: right;
-    color: #ffb6dc;
-    font-style: italic;
-  }
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
 
-  .tiny {
-    font-size: 13px;
-    color: #9f9dbd;
-    margin-top: 16px;
-  }
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.35);
 
-  .heart {
-    position: fixed;
-    font-size: 18px;
-    pointer-events: none;
-    animation: rise 5s linear forwards;
-    z-index: 20;
-  }
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+        }
 
-  @keyframes rise {
-    from {
-      transform: translateY(0) scale(.8);
-      opacity: 0;
-    }
+        .photo-card:hover {
+            transform: translateY(-10px) scale(1.015);
 
-    15% {
-      opacity: 1;
-    }
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.5);
+        }
 
-    to {
-      transform:
-        translateY(-110vh)
-        translateX(50px)
-        scale(1.4);
-      opacity: 0;
-    }
-  }
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
 
-  @media(max-width:500px) {
+            transition:
+                transform 0.7s ease,
+                filter 0.7s ease;
+        }
 
-    .grid {
-      grid-template-columns: 1fr 1fr;
-    }
+        .photo-card:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.8);
+        }
 
-    .portal {
-      min-height: 145px;
-      padding: 15px;
-    }
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
 
-    .portal .icon {
-      font-size: 34px;
-    }
+            padding: 50px 20px 20px;
 
-    .note {
-      font-size: 16px;
-    }
-  }
-</style>
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0,0,0,0.8)
+                );
+        }
+
+        .photo-caption h3 {
+            font-size: 21px;
+            font-weight: normal;
+        }
+
+        .photo-caption p {
+            color: #d0d0df;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        /* ------------------------------
+           MESSAGE
+        ------------------------------ */
+
+        .message-box {
+            max-width: 850px;
+            margin: auto;
+
+            padding: 50px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.08),
+                    rgba(255,255,255,0.03)
+                );
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.3);
+        }
+
+        .message-box p {
+            color: #dedfec;
+            font-size: 18px;
+            line-height: 2;
+            text-align: center;
+        }
+
+        .message-box .signature {
+            margin-top: 30px;
+            color: #ff9dcc;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        /* ------------------------------
+           REASONS
+        ------------------------------ */
+
+        .reasons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .reason {
+            padding: 30px 25px;
+            text-align: center;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.08);
+
+            transition: 0.35s ease;
+        }
+
+        .reason:hover {
+            transform: translateY(-7px);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .reason-icon {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .reason h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: normal;
+        }
+
+        .reason p {
+            color: #aeb1c9;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ------------------------------
+           SPECIAL BUTTON
+        ------------------------------ */
+
+        .center {
+            text-align: center;
+        }
+
+        .love-button {
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+
+            font-family: inherit;
+            font-size: 16px;
+
+            color: white;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff6fae,
+                    #a77bff
+                );
+
+            box-shadow:
+                0 10px 35px rgba(255,100,180,0.25);
+
+            transition: 0.3s ease;
+        }
+
+        .love-button:hover {
+            transform: translateY(-3px) scale(1.04);
+
+            box-shadow:
+                0 15px 45px rgba(255,100,180,0.4);
+        }
+
+        /* ------------------------------
+           SECRET MESSAGE
+        ------------------------------ */
+
+        #secret {
+            display: none;
+            margin-top: 30px;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.06);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            color: #f1d9e8;
+
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* ------------------------------
+           FOOTER
+        ------------------------------ */
+
+        footer {
+            text-align: center;
+            padding: 60px 20px 80px;
+
+            color: #8589a5;
+            font-size: 14px;
+        }
+
+        footer .footer-heart {
+            color: #ff82b9;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        /* ------------------------------
+           RESPONSIVE
+        ------------------------------ */
+
+        @media (max-width: 850px) {
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .reasons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 70px 0;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .reasons {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-card {
+                height: 500px;
+            }
+
+            .message-box {
+                padding: 30px 22px;
+            }
+
+            .message-box p {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
 </head>
 
 
 <body>
 
+    <!-- FLOATING HEARTS -->
 
-<!-- =========================
-     WELCOME SCREEN
-========================= -->
+    <div class="hearts">
 
-<section id="welcome" class="screen active hero">
-
-  <div class="moon">
-    🌙
-  </div>
-
-  <h1>
-    Welcome to
-    <span class="pink">your</span>
-    universe
-  </h1>
-
-  <p class="sub">
-
-    A tiny little corner of the internet made for the girl
-    who somehow became my favourite part of life...
-
-    <br>
-
-    <span class="pink">
-      myuu Vidisha ❤️
-    </span>
-
-  </p>
-
-  <button
-    class="enter"
-    onclick="show('universe')"
-  >
-    Enter my universe ✨
-  </button>
-
-</section>
-
-
-
-<!-- =========================
-     MAIN UNIVERSE
-========================= -->
-
-<section id="universe" class="screen">
-
-  <div class="top">
-
-    <h2>
-      MY LITTLE UNIVERSE 🌌
-    </h2>
-
-    <p>
-      Everything here has a tiny piece of you in it.
-    </p>
-
-  </div>
-
-
-  <div class="grid">
-
-
-    <div
-      class="portal"
-      onclick="show('rose')"
-    >
-
-      <div class="icon">
-        🌹
-      </div>
-
-      <strong>
-        My Rose
-      </strong>
-
-      <small>
-        the prettiest part
-      </small>
+        <div class="heart">❤️</div>
+        <div class="heart">💗</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💗</div>
+        <div class="heart">❤️</div>
 
     </div>
 
 
+    <main>
 
-    <div
-      class="portal"
-      onclick="show('comfort')"
-    >
+        <!-- HERO -->
 
-      <div class="icon">
-        🧸
-      </div>
+        <section class="hero">
 
-      <strong>
-        My Comfort
-      </strong>
+            <div class="hero-content">
 
-      <small>
-        where my heart rests
-      </small>
+                <div class="small-title">
+                    A little universe made for you
+                </div>
 
-    </div>
+                <h1>
+                    Vidisha's<br>
+                    Universe ❤️
+                </h1>
 
+                <p>
+                    Some people become a beautiful part of your life.
+                    Some become the reason ordinary days feel special.
+                    And then there are people who somehow become
+                    their own little universe.
+                </p>
 
+                <div class="heart-big">
+                    ❤️
+                </div>
 
-    <div
-      class="portal"
-      onclick="show('khushiii')"
-    >
+            </div>
 
-      <div class="icon">
-        ✨
-      </div>
+        </section>
 
-      <strong>
-        Meri Khushhiii
-      </strong>
 
-      <small>
-        my favourite smile
-      </small>
+        <!-- PHOTOS -->
 
-    </div>
+        <section>
 
+            <div class="section-title">
 
+                <span>
+                    Little moments
+                </span>
 
-    <div
-      class="portal"
-      onclick="show('littleworld')"
-    >
+                <h2>
+                    Her beautiful world
+                </h2>
 
-      <div class="icon">
-        🍭
-      </div>
+                <p>
+                    A few photographs that deserve their own little place here.
+                </p>
 
-      <strong>
-        Our Little World
-      </strong>
+            </div>
 
-      <small>
-        just us being us
-      </small>
 
-    </div>
+            <div class="gallery">
 
 
+                <!-- PHOTO 1 -->
 
-    <div
-      class="portal"
-      onclick="show('words')"
-    >
+                <div class="photo-card">
 
-      <div class="icon">
-        💌
-      </div>
+                    <img
+                        src="images/photo1.jpg"
+                        alt="Vidisha"
+                    >
 
-      <strong>
-        Words I Don't Say Enough
-      </strong>
+                    <div class="photo-caption">
 
-      <small>
-        please read this one
-      </small>
+                        <h3>
+                            That smile ❤️
+                        </h3>
 
-    </div>
+                        <p>
+                            One of those pictures that speaks for itself.
+                        </p>
 
+                    </div>
 
+                </div>
 
-    <div
-      class="portal"
-      onclick="show('secret')"
-    >
 
-      <div class="icon">
-        🔐
-      </div>
+                <!-- PHOTO 2 -->
 
-      <strong>
-        One Secret
-      </strong>
+                <div class="photo-card">
 
-      <small>
-        okay... don't peek 👀
-      </small>
+                    <img
+                        src="images/photo2.jpg"
+                        alt="Vidisha"
+                    >
 
-    </div>
+                    <div class="photo-caption">
 
+                        <h3>
+                            Simply beautiful
+                        </h3>
 
-  </div>
+                        <p>
+                            A moment worth keeping forever.
+                        </p>
 
-</section>
+                    </div>
 
+                </div>
 
 
-<!-- =========================
-     MY ROSE
-========================= -->
+                <!-- PHOTO 3 -->
 
-<section id="rose" class="screen">
+                <div class="photo-card">
 
-  <div class="content glass">
+                    <img
+                        src="images/photo3.jpg"
+                        alt="Vidisha"
+                    >
 
-    <h2>
-      🌹 My Rose
-    </h2>
+                    <div class="photo-caption">
 
-    <p class="note">
+                        <h3>
+                            The little details ✨
+                        </h3>
 
-      Aapko pata hai what I love the most?
+                        <p>
+                            Somehow the smallest moments become the biggest memories.
+                        </p>
 
-      It's not just your smile or your eyes.
+                    </div>
 
-      It's the way you make ordinary moments feel special.
+                </div>
 
-      You have this little way of making my day better
-      without even tryingggg.
 
-    </p>
+                <!-- PHOTO 4 -->
 
+                <div class="photo-card">
 
-    <p class="note">
+                    <img
+                        src="images/photo4.jpg"
+                        alt="Vidisha"
+                    >
 
-      And honestly...
+                    <div class="photo-caption">
 
-      among all the beautiful things in this world,
-      somehow my heart still picked
+                        <h3>
+                            A little sparkle 💗
+                        </h3>
 
-      <span class="pink">
-        you
-      </span>.
+                        <p>
+                            Another memory that belongs here.
+                        </p>
 
-    </p>
+                    </div>
 
+                </div>
 
-    <div class="chips">
 
-      <span class="chip">
-        meri Rose 🌹
-      </span>
+                <!-- PHOTO 5 -->
 
-      <span class="chip">
-        meri Khushhiii ✨
-      </span>
+                <div class="photo-card">
 
-      <span class="chip">
-        meri Loveee ❤️
-      </span>
+                    <img
+                        src="images/photo5.jpg"
+                        alt="Vidisha"
+                    >
 
-    </div>
+                    <div class="photo-caption">
 
+                        <h3>
+                            Flowers & smiles 🌸
+                        </h3>
 
-    <div class="signature">
+                        <p>
+                            A picture that feels like a memory.
+                        </p>
 
-      — your idiot, Prakhar
+                    </div>
 
-    </div>
+                </div>
 
 
-    <button
-      class="back"
-      onclick="show('universe')"
-    >
+                <!-- PHOTO 6 -->
 
-      ← back to the stars
+                <div class="photo-card">
 
-    </button>
+                    <img
+                        src="images/photo6.jpg"
+                        alt="Vidisha"
+                    >
 
-  </div>
+                    <div class="photo-caption">
 
-</section>
+                        <h3>
+                            Just you 💕
+                        </h3>
 
+                        <p>
+                            No complicated words needed.
+                        </p>
 
+                    </div>
 
-<!-- =========================
-     MY COMFORT
-========================= -->
+                </div>
 
-<section id="comfort" class="screen">
 
-  <div class="content glass">
+                <!-- PHOTO 7 -->
 
-    <h2>
-      🧸 My Comfort
-    </h2>
+                <div class="photo-card">
 
+                    <img
+                        src="images/photo7.jpg"
+                        alt="Vidisha"
+                    >
 
-    <p class="note">
+                    <div class="photo-caption">
 
-      You don't always have to do anything for me.
+                        <h3>
+                            A rose for you 🌹
+                        </h3>
 
-      Sometimes just talking to you,
-      hearing your voice,
-      or seeing you happy
-      is enough to make everything feel
-      a little less heavy.
+                        <p>
+                            Because some pictures deserve to stand alone.
+                        </p>
 
-    </p>
+                    </div>
 
+                </div>
 
-    <p class="note">
 
-      You're not just someone I love.
+            </div>
 
-      You're the person my heart naturally looks for
-      when it wants a little peace.
+        </section>
 
-    </p>
 
+        <!-- MESSAGE -->
 
-    <div class="signature">
+        <section>
 
-      My comfort.
-      My Loveee.
-      MY HOME!! ❤️
+            <div class="section-title">
 
-    </div>
+                <span>
+                    A message
+                </span>
 
+                <h2>
+                    For you
+                </h2>
 
-    <button
-      class="back"
-      onclick="show('universe')"
-    >
+            </div>
 
-      ← back to the stars
 
-    </button>
+            <div class="message-box">
 
-  </div>
+                <p>
 
-</section>
+                    If I could put every beautiful memory,
+                    every smile, every little conversation,
+                    and every moment that made me happy
+                    into one place...
 
+                    <br><br>
 
+                    I think it would look something like this.
 
-<!-- =========================
-     MERI KHUSHIII
-========================= -->
+                    <br><br>
 
-<section id="khushiii" class="screen">
+                    This isn't supposed to be perfect.
+                    It's just a small digital corner made
+                    especially for you — a place where
+                    these little memories can stay.
 
-  <div class="content glass">
+                    <br><br>
 
-    <h2>
-      ✨ Meri Khushhiii
-    </h2>
+                    And whenever you come back here,
+                    I hope it reminds you that you are
+                    incredibly special.
 
+                </p>
 
-    <p class="note">
 
-      I hope you know how much your happiness matters to me.
+                <div class="signature">
 
-      Your random excitement,
-      your cute little reactions,
-      your messages,
-      your laugh...
+                    Made with ❤️
 
-      all those tiny things are somehow
-      my favourite things.
+                </div>
 
-    </p>
+            </div>
 
+        </section>
 
-    <p class="note">
 
-      So if you're smiling while reading this right nowww,
+        <!-- REASONS -->
 
-      then mission successful.
+        <section>
 
-      🫠❤️
+            <div class="section-title">
 
-    </p>
+                <span>
+                    Just because
+                </span>
 
+                <h2>
+                    A few things worth remembering
+                </h2>
 
-    <button
-      class="back"
-      onclick="show('universe')"
-    >
+            </div>
 
-      ← back to the stars
 
-    </button>
+            <div class="reasons">
 
-  </div>
 
-</section>
+                <div class="reason">
 
+                    <div class="reason-icon">
+                        🌸
+                    </div>
 
+                    <h3>
+                        Your smile
+                    </h3>
 
-<!-- =========================
-     OUR LITTLE WORLD
-========================= -->
+                    <p>
+                        It has a way of making an ordinary
+                        moment feel a little more special.
+                    </p>
 
-<section id="littleworld" class="screen">
+                </div>
 
-  <div class="content glass">
 
-    <h2>
-      🍭 Our Little World
-    </h2>
+                <div class="reason">
 
+                    <div class="reason-icon">
+                        ✨
+                    </div>
 
-    <p class="note">
+                    <h3>
+                        Your presence
+                    </h3>
 
-      I want our little world to have
-      silly jokes,
-      random conversations,
-      stupid arguments,
-      cute apologies,
-      late-night talks,
+                    <p>
+                        Some people don't need to do anything
+                        extraordinary to make a difference.
+                    </p>
 
-      and a whole lot of
+                </div>
 
-      “I miss youuu”
 
-      messages.
+                <div class="reason">
 
-    </p>
+                    <div class="reason-icon">
+                        💗
+                    </div>
 
+                    <h3>
+                        The little things
+                    </h3>
 
-    <p class="note">
+                    <p>
+                        Sometimes it's the tiny conversations
+                        and random moments that become favourites.
+                    </p>
 
-      Not everything has to be perfect.
+                </div>
 
-      I just want it to be
 
-      <span class="pink">
-        ours
-      </span>.
+                <div class="reason">
 
-    </p>
+                    <div class="reason-icon">
+                        🌙
+                    </div>
 
+                    <h3>
+                        The memories
+                    </h3>
 
-    <div class="chips">
+                    <p>
+                        Every picture here is just another
+                        little piece of a much bigger story.
+                    </p>
 
-      <span class="chip">
-        Rose 🌹
-      </span>
+                </div>
 
-      <span class="chip">
-        Plushies 🧸
-      </span>
 
-      <span class="chip">
-        Cotton Candy 🍭
-      </span>
+                <div class="reason">
 
-    </div>
+                    <div class="reason-icon">
+                        🌹
+                    </div>
 
+                    <h3>
+                        The person you are
+                    </h3>
 
-    <button
-      class="back"
-      onclick="show('universe')"
-    >
+                    <p>
+                        Not because of one particular thing,
+                        but because of all the little things together.
+                    </p>
 
-      ← back to the stars
+                </div>
 
-    </button>
 
-  </div>
+                <div class="reason">
 
-</section>
+                    <div class="reason-icon">
+                        💫
+                    </div>
 
+                    <h3>
+                        Simply you
+                    </h3>
 
+                    <p>
+                        Sometimes that's more than enough.
+                    </p>
 
-<!-- =========================
-     WORDS I DON'T SAY ENOUGH
-========================= -->
+                </div>
 
-<section id="words" class="screen">
 
-  <div class="content glass">
+            </div>
 
-    <h2>
-      💌 Words I Don't Say Enough
-    </h2>
+        </section>
 
 
-    <p class="note">
+        <!-- SECRET MESSAGE -->
 
-      I know lately I couldn't give you
-      the time you deserve,
+        <section>
 
-      and I know that hurt you.
+            <div class="section-title">
 
-      I'm genuinely sorry for making you feel
-      like you mattered any less.
+                <span>
+                    One last thing
+                </span>
 
-    </p>
+                <h2>
+                    There's something hidden here...
+                </h2>
 
+            </div>
 
-    <p class="note">
 
-      Please believe me when I say this:
+            <div class="center">
 
-      being busy never meant loving you less.
+                <button
+                    class="love-button"
+                    onclick="showSecret()"
+                >
+                    Open the secret ❤️
+                </button>
 
-      I still think about you,
-      I still care about the tiniest things,
 
-      and I still feel ridiculously lucky
-      that I get to call you mine.
+                <div id="secret">
 
-    </p>
+                    You found it. ❤️
 
+                    <br><br>
 
-    <p class="note">
+                    Out of all the things on this website,
+                    this little message might be the simplest:
 
-      I can't promise that every day will be perfect,
+                    <br><br>
 
-      but I can promise that I'll keep trying
-      to make you feel loved,
-      heard,
-      respected,
+                    <strong>
+                        You deserve all the beautiful things
+                        life has to offer.
+                    </strong>
 
-      and important.
+                    <br><br>
 
-    </p>
+                    Never forget that.
 
+                </div>
 
-    <p class="note pink">
+            </div>
 
-      <strong>
+        </section>
 
-        I love youuuuu.
 
-        More than I know how to explain. ❤️
+    </main>
 
-      </strong>
 
-    </p>
+    <!-- FOOTER -->
 
+    <footer>
 
-    <div class="signature">
+        <div class="footer-heart">
+            ❤️
+        </div>
 
-      Always and forever yours,
+        Made especially for Vidisha
 
-      <br>
+        <br>
 
-      Prakhar
+        <span>
+            A tiny universe on the internet.
+        </span>
 
-    </div>
+    </footer>
 
 
-    <button
-      class="back"
-      onclick="show('universe')"
-    >
+    <script>
 
-      ← back to the stars
+        function showSecret() {
 
-    </button>
+            const secret = document.getElementById("secret");
 
-  </div>
+            if (secret.style.display === "block") {
 
-</section>
+                secret.style.display = "none";
 
+            } else {
 
+                secret.style.display = "block";
 
-<!-- =========================
-     SECRET
-========================= -->
+            }
 
-<section id="secret" class="screen">
+        }
 
-  <div class="content glass secret">
+    </script>
 
-    <div class="lock">
-      🔐
-    </div>
-
-
-    <h2>
-      One Secret
-    </h2>
-
-
-    <p class="sub">
-
-      Okayyy...
-
-      you've come this far.
-
-      You can open it now.
-
-    </p>
-
-
-    <button onclick="unlock()">
-
-      Open the secret ❤️
-
-    </button>
-
-
-    <div
-      id="secretMessage"
-      class="secret-message"
-    >
-
-      Out of every possible universe,
-      every possible timeline,
-      every possible version of my life...
-
-      <br><br>
-
-      <span class="pink">
-        I'd still look for you.
-      </span>
-
-      <br><br>
-
-      And if I found you again,
-
-      <br>
-
-      I'd choose you againnnn. ❤️
-
-    </div>
-
-
-    <button
-      class="back"
-      onclick="show('universe')"
-    >
-
-      ← back to the stars
-
-    </button>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
-<script>
-
-function show(id) {
-
-  document
-    .querySelectorAll('.screen')
-    .forEach(
-      s => s.classList.remove('active')
-    );
-
-  document
-    .getElementById(id)
-    .classList.add('active');
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-
-}
-
-
-
-function unlock() {
-
-  document
-    .getElementById('secretMessage')
-    .classList.add('show');
-
-
-  for(let i = 0; i < 14; i++) {
-
-    setTimeout(() => {
-
-      const h =
-        document.createElement('div');
-
-      h.className = 'heart';
-
-      h.textContent =
-        ['❤️','💗','💖','✨','🌸']
-        [Math.floor(Math.random() * 5)];
-
-
-      h.style.left =
-        (10 + Math.random() * 80) + 'vw';
-
-
-      h.style.bottom =
-        '-20px';
-
-
-      h.style.animationDuration =
-        (3 + Math.random() * 3) + 's';
-
-
-      document.body.appendChild(h);
-
-
-      setTimeout(
-        () => h.remove(),
-        6500
-      );
-
-    }, i * 120);
-
-  }
-
-}
-
-</script>
 
 </body>
+
 </html>
